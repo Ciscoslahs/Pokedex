@@ -1,5 +1,5 @@
 public class EndDex {
-    public void goodbye(){
+    public void goodbye() {
         System.out.println("                                                                                                            \n" +
                 "      _____            _____            _____         _____         _____    _____      _____      ______   \n" +
                 "  ___|\\    \\      ____|\\    \\      ____|\\    \\    ___|\\    \\   ___|\\     \\  |\\    \\    /    /| ___|\\     \\  \n" +
