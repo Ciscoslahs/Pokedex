@@ -6,21 +6,22 @@ import java.util.Scanner;
 
 public class StartDex {
     public void welcome() {
-        System.out.println("\n" +
-                "                                                                                                      \n" +
-                "     _____           _____     ____    ____       ______        _____        ______                   \n" +
-                " ___|\\    \\     ____|\\    \\   |    |  |    |  ___|\\     \\   ___|\\    \\   ___|\\     \\  _____      _____\n" +
-                "|    |\\    \\   /     /\\    \\  |    |  |    | |     \\     \\ |    |\\    \\ |     \\     \\ \\    \\    /    /\n" +
-                "|    | |    | /     /  \\    \\ |    | /    // |     ,_____/||    | |    ||     ,_____/| \\    \\  /    / \n" +
-                "|    |/____/||     |    |    ||    |/ _ _//  |     \\--'\\_|/|    | |    ||     \\--'\\_|/  \\____\\/____/  \n" +
-                "|    ||    |||     |    |    ||    |\\    \\'  |     /___/|  |    | |    ||     /___/|    /    /\\    \\  \n" +
-                "|    ||____|/|\\     \\  /    /||    | \\    \\  |     \\____|\\ |    | |    ||     \\____|\\  /    /  \\    \\ \n" +
-                "|____|       | \\_____\\/____/ ||____|  \\____\\ |____ '     /||____|/____/||____ '     /|/____/ /\\ \\____\\\n" +
-                "|    |        \\ |    ||    | /|    |   |    ||    /_____/ ||    /    | ||    /_____/ ||    |/  \\|    |\n" +
-                "|____|         \\|____||____|/ |____|   |____||____|     | /|____|____|/ |____|     | /|____|    |____|\n" +
-                "  \\(              \\(    )/      \\(       )/    \\( |_____|/   \\(    )/     \\( |_____|/   \\(        )/  \n" +
-                "   '               '    '        '       '      '    )/       '    '       '    )/       '        '   \n" +
-                "                                                     '                          '                     ");
+        System.out.println("""
+
+                                                                                                                     \s
+                     _____           _____     ____    ____       ______        _____        ______                  \s
+                 ___|\\    \\     ____|\\    \\   |    |  |    |  ___|\\     \\   ___|\\    \\   ___|\\     \\  _____      _____
+                |    |\\    \\   /     /\\    \\  |    |  |    | |     \\     \\ |    |\\    \\ |     \\     \\ \\    \\    /    /
+                |    | |    | /     /  \\    \\ |    | /    // |     ,_____/||    | |    ||     ,_____/| \\    \\  /    /\s
+                |    |/____/||     |    |    ||    |/ _ _//  |     \\--'\\_|/|    | |    ||     \\--'\\_|/  \\____\\/____/ \s
+                |    ||    |||     |    |    ||    |\\    \\'  |     /___/|  |    | |    ||     /___/|    /    /\\    \\ \s
+                |    ||____|/|\\     \\  /    /||    | \\    \\  |     \\____|\\ |    | |    ||     \\____|\\  /    /  \\    \\\s
+                |____|       | \\_____\\/____/ ||____|  \\____\\ |____ '     /||____|/____/||____ '     /|/____/ /\\ \\____\\
+                |    |        \\ |    ||    | /|    |   |    ||    /_____/ ||    /    | ||    /_____/ ||    |/  \\|    |
+                |____|         \\|____||____|/ |____|   |____||____|     | /|____|____|/ |____|     | /|____|    |____|
+                  \\(              \\(    )/      \\(       )/    \\( |_____|/   \\(    )/     \\( |_____|/   \\(        )/ \s
+                   '               '    '        '       '      '    )/       '    '       '    )/       '        '  \s
+                                                                     '                          '                    \s""");
         System.out.println("You can search for pokemon by type or search for a single " +
                 "pokemon with this method or get shown a random Pokemon");
     }
@@ -34,37 +35,43 @@ public class StartDex {
     // https://www.tutorialspoint.com/design_pattern/command_pattern.htm
     public static void whichDex() {
         //TODO: changed the output to be easier to read
-        System.out.println("Enter which Dex mode you want to use:\n" +
-                "    'random' for random Dex entry\n" +
-                "    'stats' to search by stats\n" +
-                "    'regular' to search with given parameters:\n");
+        System.out.println("""
+                Enter which Dex mode you want to use:
+                'random' for random Dex entry
+                'stats' to search by stats
+                'regular' to search with given parameters:
+                """);
         Scanner which = new Scanner(System.in);
         String thisOne = which.next();
         boolean moreDex = true;
         while (moreDex) {
-            if (thisOne.equalsIgnoreCase("random") || thisOne.contains("Ra") || thisOne.contains("ra")) {
+            if (thisOne.equalsIgnoreCase("random") || thisOne.toLowerCase().contains("ra")) {
                 GetRandomMon randMon = new GetRandomMon();
                 System.out.println("Your Random Pokemon:");
                 randMon.getRandMon();
                 moreDex = keepGoing();
             }
-            if (thisOne.equalsIgnoreCase("stats") || thisOne.contains("St") || thisOne.contains("st")) {
+            if (thisOne.equalsIgnoreCase("stats") || thisOne.toLowerCase().contains("st")) {
                 System.out.println("You chose to enter your own parameters\nEnter your" +
                         " chosen parameters:");
                 GetMons sDex = new GetMons();
                 sDex.getStats();
                 moreDex = keepGoing();
             }
-            if (thisOne.equalsIgnoreCase("regular") || thisOne.contains("Re") || thisOne.contains("re")) {
+            if (thisOne.equalsIgnoreCase("regular") || thisOne.toLowerCase().contains("re")) {
                 System.out.println("You chose to enter your own parameters\nEnter your" +
                         " chosen parameters:");
                 GetMons dex = new GetMons();
                 dex.findEntry();
                 moreDex = keepGoing();
             }
-        /*if(!thisOne.contains("Re") || !thisOne.contains("re") || !thisOne.contains("Ra") || !thisOne.contains("ra") ||!thisOne.contains("St") || !thisOne.contains("st")){
-            System.out.println("That's not an option :/");
-        }*/
+
+            if(!thisOne.toLowerCase().contains("re") || !thisOne.toLowerCase().contains("ra") || !thisOne.toLowerCase().contains("st")){
+                System.out.println("That's not an option :/");
+                moreDex = false;
+                EndDex eDex = new EndDex();
+                eDex.goodbye();
+            }
         }
 
     }
@@ -72,22 +79,21 @@ public class StartDex {
     //Asks players if they want to continue playing or stop
     public static boolean keepGoing() {
         String answer;
-        boolean keepGoing = true;
-        do {
             //Scanner takes input from keyboard and evaluates what it is, 'y' continues game, 'n' stops game, and any other option asks the question again
             System.out.println("\nIf you want to keep playing type 'y' if not, type 'n'.");
             Scanner keyboard = new Scanner(System.in);
             answer = keyboard.next();
-        } while (answer.equals("y") || answer.equals("n")); // need to check strings with '.equals()'
 
-        if (answer.toLowerCase().contains("n")) {
-            EndDex seeYa = new EndDex();
-            System.out.println("\n\nSee you next time!");
-            keepGoing = false;
-            seeYa.goodbye();
-        }
+            if (answer.toLowerCase().contains("y")) {
+                whichDex();
+            } else {
+                EndDex seeYa = new EndDex();
+                System.out.println("\n\nSee you next time!");
+                seeYa.goodbye();
+                return false;
+            }
 
-        return keepGoing;
+        return false;
     }
 
     //This method is for debugging purposes

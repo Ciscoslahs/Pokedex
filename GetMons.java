@@ -18,7 +18,7 @@ public class GetMons {
             while (reader.hasNext()) {
                 String entry = reader.nextLine();
                 //TODO: introduce variable that is used multiple times
-                boolean contains = entry.toLowerCase().contains(chosen.toLowerCase());
+                boolean contains = entry.toLowerCase().startsWith(chosen.toLowerCase());
                 if (contains && chosen.length() == 3) {
                     if (chosen.toLowerCase().contains("mew")) {
                         //If block to determine if looking for Mew or Mewtwo
