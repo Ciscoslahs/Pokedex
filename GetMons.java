@@ -10,6 +10,7 @@ public class GetMons {
     //TODO: put docs notes above method or class name - this is the convention in the industry
     public void findEntry() {
         try {
+            //Reading file and getting user input
             File read = new File("Pokemon.txt");
             Scanner reader = new Scanner(read);
             Scanner input = new Scanner(System.in);
@@ -19,29 +20,12 @@ public class GetMons {
                 String entry = reader.nextLine();
                 //TODO: introduce variable that is used multiple times
                 boolean contains = entry.toLowerCase().startsWith(chosen.toLowerCase());
-                if (contains && chosen.length() == 3) {
-                    if (chosen.toLowerCase().contains("mew")) {
-                        //If block to determine if looking for Mew or Mewtwo
-                        //TODO: if you already know they're searching for Mewtwo you can immediately print that without using the reader
-                        //TODO: this conditional is always true - therefore it's unnecessary
-                        if (chosen.length() == 3) {
-                            System.out.println("Your selected Pokemon is: " + reader.nextLine());
-                        }
-                        //this conditional is always false - therefore it's unnecessary
-                        if (chosen.length() == 6) {
-                            System.out.println("Your selected Pokemon is: " + entry);
-                        }
-                    }
-                    if (!chosen.toLowerCase().contains("mew")) {
-                        System.out.println("Pokemon that contain your parameters: " + entry);
-                    }
-                }
-                if (contains && chosen.length() > 3) {
+                if(contains){
                     System.out.println("Pokemon that contain your parameters: " + entry);
                 }
-                if (contains && chosen.length() <= 2) {
-                    System.out.println("Pokemon that contain your parameters: " + entry);
-                }
+               //TODO: handle the case where the user enters something not in file and print a message
+                //TODO: if you already know they're searching for Mewtwo you can immediately print that without using the reader
+                //TODO: this conditional is always true - therefore it's unnecessary
             }
             reader.close();
         } catch (FileNotFoundException e) {

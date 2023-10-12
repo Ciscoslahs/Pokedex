@@ -43,57 +43,61 @@ public class StartDex {
                 """);
         Scanner which = new Scanner(System.in);
         String thisOne = which.next();
+        //boolean to keep the while loop going
         boolean moreDex = true;
-        while (moreDex) {
-            if (thisOne.equalsIgnoreCase("random") || thisOne.toLowerCase().contains("ra")) {
+        while (moreDex != false) {
+            //gets random pokemon
+            if (thisOne.toLowerCase().contains("ra")) {
                 GetRandomMon randMon = new GetRandomMon();
                 System.out.println("Your Random Pokemon:");
                 randMon.getRandMon();
                 moreDex = keepGoing();
             }
-            if (thisOne.equalsIgnoreCase("stats") || thisOne.toLowerCase().contains("st")) {
+            //gets pokemon by stats
+            if (thisOne.toLowerCase().contains("st")) {
                 System.out.println("You chose to enter your own parameters\nEnter your" +
                         " chosen parameters:");
                 GetMons sDex = new GetMons();
                 sDex.getStats();
                 moreDex = keepGoing();
             }
-            if (thisOne.equalsIgnoreCase("regular") || thisOne.toLowerCase().contains("re")) {
+            //gets Pokémon by string input
+            if (thisOne.toLowerCase().contains("re")) {
                 System.out.println("You chose to enter your own parameters\nEnter your" +
                         " chosen parameters:");
                 GetMons dex = new GetMons();
                 dex.findEntry();
                 moreDex = keepGoing();
-            }
-
-            if(!thisOne.toLowerCase().contains("re") || !thisOne.toLowerCase().contains("ra") || !thisOne.toLowerCase().contains("st")){
-                System.out.println("That's not an option :/");
+                //if the input is not one of the options, it asks the question again
+            }else if(!thisOne.toLowerCase().contains("re") || !thisOne.toLowerCase().contains("ra") || !thisOne.toLowerCase().contains("st")){
+                if(moreDex != false){
+                    System.out.println("That's not an option :/\n\n\n");
+                    whichDex();
+                }
+                //if the user wants to stop playing, the boolean is set to false and the game stops
                 moreDex = false;
-                EndDex eDex = new EndDex();
-                eDex.goodbye();
+
             }
         }
 
     }
-
     //Asks players if they want to continue playing or stop
     public static boolean keepGoing() {
         String answer;
             //Scanner takes input from keyboard and evaluates what it is, 'y' continues game, 'n' stops game, and any other option asks the question again
-            System.out.println("\nIf you want to keep playing type 'y' if not, type 'n'.");
+            System.out.println("\nIf you want to keep playing type 'y' if not, type any other key.");
             Scanner keyboard = new Scanner(System.in);
             answer = keyboard.next();
 
             if (answer.toLowerCase().contains("y")) {
                 whichDex();
-            } else {
+            }else {
                 EndDex seeYa = new EndDex();
                 System.out.println("\n\nSee you next time!");
                 seeYa.goodbye();
                 return false;
             }
-
-        return false;
+            return false;
     }
 
     //This method is for debugging purposes
