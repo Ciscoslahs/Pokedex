@@ -4,8 +4,7 @@ will display all pokémon of a certain type*/
 public class GetPokedexEntries {
     public static void main(String[] args) {
         StartDex start = new StartDex();
-        //start.getAllPokemon();//debug
         start.welcome();
-        start.whichDex();
+        start.getDex();
     }
 }

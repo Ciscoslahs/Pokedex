@@ -10,49 +10,43 @@ public class GetMons {
     //TODO: put docs notes above method or class name - this is the convention in the industry
     public void findEntry() {
         try {
-            //Reading file and getting user input
-            File read = new File("Pokemon.txt");
-            Scanner reader = new Scanner(read);
-            Scanner input = new Scanner(System.in);
-            String chosen = input.next();
-            //This loop prints selected pokémon
-            while (reader.hasNext()) {
-                String entry = reader.nextLine();
+            File readMons = new File("Pokemon.txt");
+            Scanner monFinder = new Scanner(readMons);
+            Scanner userMon = new Scanner(System.in);
+            String chosenMon = userMon.next();
+            while (monFinder.hasNext()) {
+                String dexEntry = monFinder.nextLine();
                 //TODO: introduce variable that is used multiple times
-                boolean contains = entry.toLowerCase().startsWith(chosen.toLowerCase());
-                if(contains){
-                    System.out.println("Pokemon that contain your parameters: " + entry);
+                boolean containsMon = dexEntry.toLowerCase().startsWith(chosenMon.toLowerCase());
+                if(containsMon){
+                    System.out.println("Pokémon that contain your parameters: " + dexEntry);
                 }
-               //TODO: handle the case where the user enters something not in file and print a message
-                //TODO: if you already know they're searching for Mewtwo you can immediately print that without using the reader
-                //TODO: this conditional is always true - therefore it's unnecessary
+                //TODO: handle the case where the user enters something not in file and print a message
+
             }
-            reader.close();
+            monFinder.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
     }
-
+    //Method takes user input in the form of an int and replies with the matched stats
     public void getStats() {
-        //Method takes user input in the form of an int and replies with the matched stats
         try {
-            File read2 = new File("Pokemon.txt");
-            Scanner reader2 = new Scanner(read2);
-            Scanner stat = new Scanner(System.in);
-            int points = stat.nextInt();
-            while (reader2.hasNext()) {
-                String entry2 = reader2.nextLine();
-                String sP = Integer.toString(points);
-                //Pattern and Matcher are to help find the int, "\\b" before and after the sP variable
-                //tell program to only look for the given parts of the input
-                Pattern pattern = Pattern.compile("\\b" + sP + "\\b");
-                Matcher matcher = pattern.matcher(entry2);
-                if (matcher.find()) {
-                    System.out.println("Pokemon that contain your parameters: " + entry2);
+            File readStats = new File("Pokemon.txt");
+            Scanner statFinder = new Scanner(readStats);
+            Scanner givenStat = new Scanner(System.in);
+            int givenPoints = givenStat.nextInt();
+            while (statFinder.hasNext()) {
+                String userStats = statFinder.nextLine();
+                String statPoints = Integer.toString(givenPoints);
+                Pattern statsOfMon = Pattern.compile("\\b" + statPoints + "\\b");
+                Matcher matchToStats = statsOfMon.matcher(userStats);
+                if (matchToStats.find()) {
+                    System.out.println("Pokémon that contain your parameters: " + userStats);
                 }
             }
-            reader2.close();
+            statFinder.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

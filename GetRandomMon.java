@@ -9,23 +9,22 @@ public class GetRandomMon {
     //Method to look at file and print line
     //TODO: put docs notes above method or class name - this is the convention in the industry
     public void getRandMon() {
-        String route = new File("Pokemon.txt").getAbsolutePath();
-        String randMon = Line(route);
+        String pickedRandMon = new File("Pokemon.txt").getAbsolutePath();
+        String randMon = findRandMon(pickedRandMon);
         System.out.println(randMon);
     }
 
-    public String Line(String route) {
-        //Method reads all lines in file and picks a random line to show
-        //TODO: I recommend using more meaningful variable names
-        List<String> linesFromFile;
+    //Method reads all lines in file and picks a random line to show
+    public String findRandMon(String pickedRandMon) {
+        List<String> randDex;
         try {
-            linesFromFile = Files.readAllLines(Paths.get(route));
+            randDex = Files.readAllLines(Paths.get(pickedRandMon));
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
-        Random random = new Random();
-        return linesFromFile.get(random.nextInt(linesFromFile.size()));
+        Random randomLine = new Random();
+        return randDex.get(randomLine.nextInt(randDex.size()));
     }
 
 }
