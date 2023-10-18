@@ -1,5 +1,7 @@
 public class EndDex {
     public void goodbye() {
+        SurprisedPikachuImage bye = new SurprisedPikachuImage();
+        bye.surprisedPikachu();
         System.out.println("""
                                                                                                                            \s
                       _____            _____            _____         _____         _____    _____      _____      ______  \s
@@ -15,5 +17,6 @@ public class EndDex {
                    \\( |____|/       \\(    )/         \\(    )/      \\(    )/     \\(    )/           )/           \\( |_____|/\s
                     '   )/           '    '           '    '        '    '       '    '            '             '    )/   \s
                         '                                                                                             '    \s""");
+
     }
 }

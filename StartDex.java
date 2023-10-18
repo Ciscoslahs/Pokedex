@@ -54,6 +54,10 @@ public class StartDex {
         } else {
             if (moreDex) {
                 System.out.println("That's not an option :/\n\n\n");
+                System.out.println("Enter which Dex mode you want to use:\n" +
+                        "'random' for random Dex entry\n" +
+                        "'stats' to search by stats\n" +
+                        "'regular' to search with given parameters:");
                 chooseDex();
             }
             moreDex = false;

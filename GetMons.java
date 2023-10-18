@@ -27,6 +27,8 @@ public class GetMons {
             monFinder.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            SurprisedPikachuImage error = new SurprisedPikachuImage();
+            error.surprisedPikachu();
         }
 
     }
@@ -45,10 +47,13 @@ public class GetMons {
                 if (matchToStats.find()) {
                     System.out.println("Pokémon that contain your parameters: " + userStats);
                 }
+
             }
             statFinder.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            SurprisedPikachuImage error = new SurprisedPikachuImage();
+            error.surprisedPikachu();
         }
     }
 }

@@ -21,6 +21,8 @@ public class GetRandomMon {
             randDex = Files.readAllLines(Paths.get(pickedRandMon));
         } catch (IOException e) {
             e.printStackTrace();
+            SurprisedPikachuImage error = new SurprisedPikachuImage();
+            error.surprisedPikachu();
             return null;
         }
         Random randomLine = new Random();
