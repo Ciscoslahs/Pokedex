@@ -14,14 +14,17 @@ public class GetMons {
             Scanner monFinder = new Scanner(readMons);
             Scanner userMon = new Scanner(System.in);
             String chosenMon = userMon.next();
+            boolean foundMon = false;
             while (monFinder.hasNext()) {
-                String dexEntry = monFinder.nextLine();
                 //TODO: introduce variable that is used multiple times
-                boolean containsMon = dexEntry.toLowerCase().startsWith(chosenMon.toLowerCase());
-                if(containsMon){
+                String dexEntry = monFinder.nextLine();
+                if(dexEntry.toLowerCase().contains(chosenMon.toLowerCase())){
                     System.out.println("Pokémon that contain your parameters: " + dexEntry);
+                    foundMon = true;
                 }
-                //TODO: handle the case where the user enters something not in file and print a message
+            }
+            if(!foundMon){
+                System.out.println("No Pokémon found\n\n");
 
             }
             monFinder.close();
@@ -39,6 +42,7 @@ public class GetMons {
             Scanner statFinder = new Scanner(readStats);
             Scanner givenStat = new Scanner(System.in);
             int givenPoints = givenStat.nextInt();
+            boolean foundStat = false;
             while (statFinder.hasNext()) {
                 String userStats = statFinder.nextLine();
                 String statPoints = Integer.toString(givenPoints);
@@ -46,8 +50,11 @@ public class GetMons {
                 Matcher matchToStats = statsOfMon.matcher(userStats);
                 if (matchToStats.find()) {
                     System.out.println("Pokémon that contain your parameters: " + userStats);
+                    foundStat = true;
                 }
-
+            }
+            if(!foundStat){
+                System.out.println("No Pokémon found\n\n");
             }
             statFinder.close();
         } catch (FileNotFoundException e) {
