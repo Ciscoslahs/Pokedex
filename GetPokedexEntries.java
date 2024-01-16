@@ -3,8 +3,7 @@ will display all pokémon of a certain type*/
 //TODO: put docs notes above method or class name - this is the convention in the industry
 public class GetPokedexEntries {
     public static void main(String[] args) {
-        StartDex start = new StartDex();
-        start.welcome();
-        start.getDex();
+        StartDex.welcome();
+        StartDex.getDex();
     }
 }
