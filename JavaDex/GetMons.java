@@ -4,10 +4,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/** Class to find Pokémon in the line with a String input or an Integer input from the user*/
 public class GetMons {
-    /*Goal of method is to find an entry in the pokédex and print the whole line
+    /** Goal of method is to find an entry in the pokédex and print the whole line
       from that entry line*/
-    //TODO: put docs notes above method or class name - this is the convention in the industry
     public void findEntry() {
         try {
             File readMons = new File("Pokemon.txt");
@@ -35,7 +35,7 @@ public class GetMons {
         }
 
     }
-    //Method takes user input in the form of an int and replies with the matched stats
+    /** Method takes user input in the form of an int and replies with the matched stats*/
     public void getStats() {
         try {
             File readStats = new File("Pokemon.txt");
@@ -64,9 +64,3 @@ public class GetMons {
         }
     }
 }
-
-
-
-
-
-

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+/** Class starts the user into the loop of picking a Pokédex to view and continues looping through until the user stops it*/
 public class StartDex {
     // TODO: consider using picocli library for building the commandline functionality
     // https://www.baeldung.com/java-picocli-create-command-line-program
@@ -8,17 +9,19 @@ public class StartDex {
     // consolidate all of the functionality of parsing user input into a single location - https://www.baeldung.com/java-command-pattern
     // https://refactoring.guru/design-patterns/command
     // https://www.tutorialspoint.com/design_pattern/command_pattern.htm
+    /** Method asks a user which Pokédex functionality they want* */
     public static void getDex() {
         //TODO: changed the output to be easier to read
         System.out.println("""
-                Enter which Dex mode you want to use:
-                'random' for random Dex entry
+                Enter which Pokédex mode you want to use:
+                'random' for random Pokédex entry
                 'stats' to search by stats
                 'regular' to search with given parameters:
                 """);
         boolean dex = true;
         loopChooseDex(dex);
     }
+    /** Method loops the chooseDex() function*/
     public static void loopChooseDex(boolean moreDex){
         while (moreDex) {
           if(chooseDex()){
@@ -28,6 +31,7 @@ public class StartDex {
           }
         }
     }
+    /** Method uses user input prompted by getDex() to call Pokédex functions*/
     public static boolean chooseDex(){
         boolean moreDex = true;
         Scanner pickDex = new Scanner(System.in);
@@ -67,7 +71,7 @@ public class StartDex {
         pickDex.close();
         return moreDex;
     }
-    //Asks players if they want to continue playing or stop
+    /** Method asks user if they want to search for more Pokémon or closes the loop*/
     public static boolean moreMons() {
         String stillMons;
         System.out.println("\nIf you want to keep searching type 'y' if not, type any other key.");
@@ -85,6 +89,7 @@ public class StartDex {
         yesOrNo.close();
         return false;
     }
+    /** ASCII art to welcome the user*/
     public static void welcome() {
         System.out.println("""
 

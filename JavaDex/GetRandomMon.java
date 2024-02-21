@@ -5,16 +5,16 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
+/** Class to get a random Pokémon from a line in the file*/
 public class GetRandomMon {
-    //Method to look at file and print line
-    //TODO: put docs notes above method or class name - this is the convention in the industry
+    /** Method to look at a file and print lines*/
     public void getRandMon() {
         String pickedRandMon = new File("Pokemon.txt").getAbsolutePath();
         String randMon = findRandMon(pickedRandMon);
         System.out.println(randMon);
     }
 
-    //Method reads all lines in file and picks a random line to show
+    /** Method to read all lines in a file and pick a random one*/
     public String findRandMon(String pickedRandMon) {
         List<String> randDex;
         try {

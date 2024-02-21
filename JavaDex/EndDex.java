@@ -1,4 +1,5 @@
 public class EndDex {
+    /** ASCII art to say goodbye to user*/
     public void goodbye() {
         SurprisedPikachuImage bye = new SurprisedPikachuImage();
         bye.surprisedPikachu();

@@ -1,4 +1,5 @@
 public class SurprisedPikachuImage {
+    /** ASCII art of a suprised Pikachu for user input errors*/
     public void surprisedPikachu(){
         System.out.println("<!-- \n" +
                 "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
