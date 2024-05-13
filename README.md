@@ -1,4 +1,4 @@
-#Pokédex
+# Pokédex
 
 ## Description
 The Pokédex project includes a Java Pokédex and a Python Pokédex that run through the console. These programs take user input, search through a text file to see if the input matches anything in the file, and then respond with the correct lines from the text file.
